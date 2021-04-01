@@ -5,9 +5,29 @@
              xmlns:xtc="http://xamarin.com/schemas/2020/toolkit" 
              xmlns:controls="clr-namespace:TouchEffectBug.Controls" 
              xmlns:toucheffectbug="clr-namespace:TouchEffectBug"
-             x:DataType="controls:TestTemplate">
+             x:DataType="toucheffectbug:SomeItem">
     <Grid BackgroundColor="Red" HeightRequest="35"
           x:Name="MainContainer">
-        <Label Text="Test"/>
+        <Label Text="{Binding Value}"/>
     </Grid>
+
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup x:Name="CommonStates">
+            <VisualState x:Name="Normal">
+                <VisualState.Setters>
+                    <Setter TargetName="MainContainer"
+                            Property="Grid.BackgroundColor"
+                            Value="Red"/>
+                </VisualState.Setters>
+            </VisualState>
+
+            <VisualState x:Name="Selected">
+                <VisualState.Setters>
+                    <Setter TargetName="MainContainer"
+                            Property="Grid.BackgroundColor"
+                            Value="Blue"/>
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
 </ContentView>

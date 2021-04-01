@@ -11,9 +11,15 @@ using System.Runtime.CompilerServices;
 
 namespace TouchEffectBug
 {
+    public class SomeItem
+    {
+        public string Value { get; set; }
+    }
+
     public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
-        public ObservableCollection<string> Items { get; set; }
+        public ObservableCollection<SomeItem> Items { get; set; }
+        public ObservableCollection<SomeItem> SelectedItems { get; set; }
         
         public MainPage()
         {
@@ -21,10 +27,11 @@ namespace TouchEffectBug
 
             InitializeComponent();
 
-            Items = new ObservableCollection<string>();
+            Items = new ObservableCollection<SomeItem>();
+            SelectedItems = new ObservableCollection<SomeItem>();
             for (int i = 0; i < 500; ++i)
             {
-                Items.Add("Test");
+                Items.Add(new SomeItem() { Value = $"Item {i}" });
             }
             OnPropertyChanged(nameof(Items));
         }
@@ -68,6 +75,15 @@ namespace TouchEffectBug
         private void Button_Clicked(object sender, EventArgs e)
         {
             HasTouchEffects = !HasTouchEffects;
+
+            if (HasTouchEffects)
+            {
+                MainCollection.SelectionMode = SelectionMode.None;
+            }
+            else
+            {
+                MainCollection.SelectionMode = SelectionMode.Multiple;
+            }
         }
     }
 }

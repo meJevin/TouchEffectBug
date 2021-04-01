@@ -17,7 +17,10 @@
             </Button.Margin>
         </Button>
 
-        <CollectionView Grid.Row="1" ItemsSource="{Binding Items}">
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Items}"
+                        x:Name="MainCollection"
+                        SelectionMode="Multiple"
+                        SelectedItems="{Binding SelectedItems}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <controls:TestTemplate HasTouchEffects="{Binding Source={RelativeSource AncestorType={x:Type toucheffectbug:MainPage}},
