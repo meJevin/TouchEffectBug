@@ -48,7 +48,9 @@ namespace TouchEffectBug.Controls
             MainContainer.ClearValue(TouchEffect.AnimationEasingProperty);
             MainContainer.ClearValue(TouchEffect.AnimationDurationProperty);
             MainContainer.RemoveBinding(TouchEffect.LongPressCommandProperty);
+            MainContainer.ClearValue(TouchEffect.LongPressCommandProperty);
             MainContainer.RemoveBinding(TouchEffect.LongPressCommandParameterProperty);
+            MainContainer.ClearValue(TouchEffect.LongPressCommandParameterProperty);
         }
 
         public void AddEffects()
