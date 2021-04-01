@@ -43,31 +43,31 @@ namespace TouchEffectBug.Controls
 
         public void RemoveEffects()
         {
-            MainContainer.Effects.Remove(MainContainer.Effects[0]);
-            MainContainer.ClearValue(TouchEffect.PressedScaleProperty);
-            MainContainer.ClearValue(TouchEffect.AnimationEasingProperty);
-            MainContainer.ClearValue(TouchEffect.AnimationDurationProperty);
-            MainContainer.RemoveBinding(TouchEffect.LongPressCommandProperty);
-            MainContainer.ClearValue(TouchEffect.LongPressCommandProperty);
-            MainContainer.RemoveBinding(TouchEffect.LongPressCommandParameterProperty);
-            MainContainer.ClearValue(TouchEffect.LongPressCommandParameterProperty);
+            //MainContainer.Effects.Remove(MainContainer.Effects[0]);
+            //MainContainer.ClearValue(TouchEffect.PressedScaleProperty);
+            //MainContainer.ClearValue(TouchEffect.AnimationEasingProperty);
+            //MainContainer.ClearValue(TouchEffect.AnimationDurationProperty);
+            //MainContainer.RemoveBinding(TouchEffect.LongPressCommandProperty);
+            //MainContainer.ClearValue(TouchEffect.LongPressCommandProperty);
+            //MainContainer.RemoveBinding(TouchEffect.LongPressCommandParameterProperty);
+            //MainContainer.ClearValue(TouchEffect.LongPressCommandParameterProperty);
         }
 
         public void AddEffects()
         {
-            Binding longPressBinding = new Binding();
-            longPressBinding.Source = new RelativeBindingSource(RelativeBindingSourceMode.FindAncestorBindingContext,
-                typeof(MainPage), 1);
-            longPressBinding.Path = nameof(MainPage.LongPressCommand);
+            //Binding longPressBinding = new Binding();
+            //longPressBinding.Source = new RelativeBindingSource(RelativeBindingSourceMode.FindAncestorBindingContext,
+            //    typeof(MainPage), 1);
+            //longPressBinding.Path = nameof(MainPage.LongPressCommand);
 
-            Binding longPressCommandBinding = new Binding();
-            longPressCommandBinding.Source = this.BindingContext;
+            //Binding longPressCommandBinding = new Binding();
+            //longPressCommandBinding.Source = this.BindingContext;
 
-            MainContainer.SetValue(TouchEffect.PressedScaleProperty, 0.95);
-            MainContainer.SetValue(TouchEffect.AnimationEasingProperty, Easing.CubicOut);
-            MainContainer.SetValue(TouchEffect.AnimationDurationProperty, 650);
-            MainContainer.SetBinding(TouchEffect.LongPressCommandProperty, longPressBinding);
-            MainContainer.SetBinding(TouchEffect.LongPressCommandParameterProperty, longPressCommandBinding);
+            //MainContainer.SetValue(TouchEffect.PressedScaleProperty, 0.95);
+            //MainContainer.SetValue(TouchEffect.AnimationEasingProperty, Easing.CubicOut);
+            //MainContainer.SetValue(TouchEffect.AnimationDurationProperty, 650);
+            //MainContainer.SetBinding(TouchEffect.LongPressCommandProperty, longPressBinding);
+            //MainContainer.SetBinding(TouchEffect.LongPressCommandParameterProperty, longPressCommandBinding);
         }
     }
 }
