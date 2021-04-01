@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:TouchEffectBug.Controls" 
+             xmlns:toucheffectbug="clr-namespace:TouchEffectBug"
+             x:Class="TouchEffectBug.MainPage"
+             x:DataType="toucheffectbug:MainPage">
+    <Grid RowDefinitions="Auto, *">
+        <Button Text="Change Template" Clicked="Button_Clicked" BackgroundColor="Blue" TextColor="White">
+            <Button.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.Platforms>
+                        <On Platform="iOS" Value="0, 30, 0, 0" />
+                        <On Platform="Android" Value="0, 0, 0, 0" />
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Button.Margin>
+        </Button>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <controls:TestTemplate HasTouchEffects="{Binding Source={RelativeSource AncestorType={x:Type toucheffectbug:MainPage}},
+                                                                        Path=BindingContext.HasTouchEffects}"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
